@@ -380,7 +380,7 @@ async function mint(){
     const tx = await signer.sendTransaction({
       to: RECEIVER,
       value: value,
-      data: ethers.hexlify(ethers.toUtf8Bytes(`IONIC:${selectedTier.key.toUpperCase()}:${qty}`))
+      gasLimit: 21000n
     });
     showStatus(`Transaction sent: ${tx.hash.slice(0,10)}… waiting for confirmation.`, 'info');
     await tx.wait();
